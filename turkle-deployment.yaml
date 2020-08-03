@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: turkle-deployment
+  labels:
+    app: turkle
+spec:
+  selector:
+    matchLabels:
+      app: turkle
+  template:
+    metadata:
+      labels:
+        app: turkle
+    spec:
+      containers:
+      - name: turkle
+        image: turkle_turkle:latest
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 8080
+        env:
+        - name: TURKLE_DOCKER
+          value: "1"
+        - name: TURKLE_DB_ENGINE
+          value: "MySQL"
+        - name: TURKLE_DB_HOST
+          value: "mysql-service"
+        - name: TURKLE_DB_NAME
+          value: "turkle"
+        - name: TURKLE_DB_USER
+          value: "turkleuser"
+        - name: TURKLE_DB_PASSWORD
+          value: "turklepass"
