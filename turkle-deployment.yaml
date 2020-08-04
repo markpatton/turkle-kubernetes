@@ -31,4 +31,7 @@ spec:
         - name: TURKLE_DB_USER
           value: "turkleuser"
         - name: TURKLE_DB_PASSWORD
-          value: "turklepass"
+          valueFrom:
+            secretKeyRef:
+              key: userpassword
+              name: mysql
