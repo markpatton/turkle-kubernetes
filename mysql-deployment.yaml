@@ -24,12 +24,19 @@ spec:
           mountPath: /var/lib/mysql
         env:
         - name: MYSQL_ROOT_PASSWORD
-          value: "sonotsecure"
+          valueFrom:
+            secretKeyRef:
+              name: mysql
+              key: rootpassword
         - name: MYSQL_DATABASE
           value: "turkle"
         - name: MYSQL_USER
           value: "turkleuser"
         - name: MYSQL_PASSWORD
-          value: "turklepass"
+          valueFrom:
+            secretKeyRef:
+              key: userpassword
+              name: mysql
+
       volumes:
         - name: mysql-data
