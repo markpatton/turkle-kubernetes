@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: turkle-deployment
+  name: turkle-service
 spec:
   type: NodePort
   selector:
