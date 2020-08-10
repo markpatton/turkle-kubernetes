@@ -61,6 +61,12 @@ eval $(~/local/minikube docker-env -u)
 
 # Deploy turkle
 
+Create a persistent volume claim for MySQL.
+
+```
+kubectl create -f mysql-pv-claim.yaml
+```
+
 First define a secret for MySQL credentials. Secrets can be created a number of different way. See for example the encrypted
 secrets in mysqlsecretsealed.yaml which requires secrets-controller.yaml.
 
